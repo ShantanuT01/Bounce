@@ -14,11 +14,12 @@ tk.wm_attributes("-topmost", 1);
 canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0);
 canvas.pack();
 tk.update();
-ball = Ball(canvas, 'red');
 paddle = Paddle(canvas, 'blue');
+ball = Ball(canvas, paddle,'red');
+
 
 def main():
-    while True:
+    while not ball.hitBottom:
         ball.draw();
         paddle.draw();
         tk.update_idletasks();
